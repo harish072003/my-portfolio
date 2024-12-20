@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>N. Harish - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Nunito', sans-serif;
+        }
+        :root {
+            --bg-color: #191f36;
+            --second-bg-color: #262840;
+            --text-color: #fff;
+            --main-color: #5982f4;
+        }
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 700;
+            cursor: default;
+        }
+        .navbar a {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            font-weight: 700;
+        }
+        .navbar a:hover,
+        .navbar a.active {
+            color: #fff;
+        }
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: 2rem;
+        }
+        span {
+            color: var(--main-color);
+        }
+        .home-content h1 {
+            font-size: 5.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .floating-img img {
+            width: 25vw;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+        @keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2.4rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-image {
+    position: relative;
+    display: block;
+    margin: 2rem auto;
+    width: 80%; /* Adjust the width as per your design */
+    max-width: 400px; /* Set a max width to avoid the image getting too large */
+    border-radius: 8px; /* Optional: Add rounded corners for a smooth look */
+    overflow: hidden; /* Ensures any content outside the image area is hidden */
+    animation: floatImage 3s ease-in-out infinite; /* Apply the floating animation */
+}
+
+.floating-image img {
+    width: 100%; /* Ensure the image fills the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .floating-image {
+        display: none; /* Hide the floating image on mobile */
+    }
+}
+
+
+
+        .home-content p {
+            font-size: 1.6rem;
+        }
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin: 3rem 1.5rem 3rem 0;
+            transition: .5s ease;
+        }
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5 ease;
+        }
+        .btn:hover {
+            box-shadow: none;
+        }
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            background: var(--second-bg-color);
+        }
+        .about-img img {
+            width: 35vw;
+        }
+        .heading {
+            text-align: center;
+            font-size: 4.5rem;
+        }
+        .about-content h2 {
+            text-align: left;
+            line-height: 1.2;
+        }
+        .about-content h3 {
+            font-size: 2.6rem;
+        }
+        .about-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+        }
+        .projects {
+            background: var(--second-bg-color);
+        }
+        .projects h2 {
+            margin-bottom: 4rem;
+        }
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .project-container .project-box {
+            position: relative;
+            border-radius: 2rem;
+            box-shadow: 0 0 1rem var(--bg-color);
+            overflow: hidden;
+            display: flex;
+        }
+        .project-box img {
+            width: 100%;
+            transition: .5s ease;
+            opacity: 0.7;
+        }
+        .project-box:hover img {
+            transform: scale(1.1);
+        }
+        .project-box .project-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgb(0,0,0,0.1), var(--main-color));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 0 4rem;
+            transform: translateY(100%);
+            transition: .5s ease;
+        }
+        .project-box:hover .project-layer {
+            transform: translateY(0);
+        }
+        .project-layer h4 {
+            font-size: 3rem;
+        }
+        .project-layer p {
+            font-size: 1.6rem;
+            margin: .3rem 0 1rem;
+        }
+        .project-layer a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background: var(--text-color);
+            border-radius: 50%;
+        }
+        .project-layer a i {
+            font-size: 2rem;
+            color: var(--second-bg-color);
+        }
+        .contact h2 {
+            margin-bottom: 3rem;
+        }
+        .contact form {
+            max-width: 70rem;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .contact form .input-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 10rem;
+        }
+        .contact form .input-box input,
+        .contact form textarea {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--second-bg-color);
+            border-radius: .8rem;
+            margin: .7rem 0;
+        }
+        .contact form .input-box input {
+            width: 49%;
+        }
+        .contact form textarea {
+            resize: none;
+        }
+        .contact form .btn {
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem 9%;
+            background: var(--second-bg-color);
+        }
+        .footer-text {
+            font-size: 1.6rem;
+        }
+        .footer-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem 1rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+        .footer-icon a:hover {
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+        .footer-icon a i {
+            font-size: 1.8rem;
+            color: var(--second-bg-color);
+        }
+        @media (max-width: 991px) {
+            section {
+                padding: 9rem 2rem 2rem;
+            }
+            .project-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            section {
+                padding: 8rem 1.5rem 2rem;
+            }
+            .project-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .about-content h3 {
+                font-size: 2.2rem;
+            }
+            .about-content p {
+                font-size: 1.4rem;
+            }
+        }
+        @media (max-width: 650px) {
+            .about {
+                flex-direction: column-reverse;
+            }
+            .about-img img {
+                width: 100%;
+            }
+        }
+        @media (max-width: 600px) {
+            html {
+                font-size: 50%;
+            }
+            #menu-icon {
+                display: block;
+                z-index: 10001;
+            }
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                background: var(--bg-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                transition: .7s;
+            }
+            .navbar a {
+                display: block;
+                margin: 2.5rem;
+                font-size: 3rem;
+            }
+            .navbar.active {
+                left: 0;
+            }
+            .about {
+                flex-direction: column-reverse;
+            }
+            .about-img img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">N. Harish</a>
+        <div class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="fas fa-bars" id="menu-icon"></div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>N. <span>Harish</span></h1>
+            <h3>And I'm a <span>BCA Student</span></h3>
+            <p>Welcome to my portfolio website. Here you can find more about my skills, projects, and how to contact me.</p>
+            <div class="social-media">
+                <a href="https://www.instagram.com/_.harish07.__?igsh=MTRta3NmbDEwZnJhOA=="><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/harish-n-744074266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="fab fa-linkedin"></a>
+                <a href="#" class="fab fa-github"></a>
+            </div>
+            <a href="RESUME...docx" class="btn" target="_blank" rel="noopener noreferrer" download>Download Resume</a>
+
+        </div>
+        <div class="floating-image">
+            <img src="WhatsApp Image 2024-07-06 at 12.18.35 AM.jpeg" alt="N. Harish">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="WhatsApp Image 2024-07-06 at 12.18.35 AM.jpeg" alt="About Me">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Hi, I'm N. Harish</h3>
+            <p>I am a passionate web developer with a BCA degree and experience in various programming languages and frameworks. I am eager to contribute to a dynamic team and create impactful web solutions.</p>
+            <p><i class="fa-solid fa-square-phone"></i> 6379363245</p>
+            <p><i class="fa-solid fa-location-dot"></i> Kanchipuram,Tamilnadu</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:harishbharath267@gmail.com">harishbharath267@gmail.com</a></p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+        
+    </section>
+
+    <section class="projects" id="projects">
+        <h2 class="heading">My <span>Projects</span></h2>
+        <div class="project-container">
+            <div class="project-box">
+                <img src="3.jpg" alt="Project 1">
+                <div class="project-layer">
+                    <h4>Project 1</h4>
+                    <p>Ecommerce Web Design</p>
+                    <a href="https://66922ee3951df5d27c1e042c--merry-lolly-854c5c.netlify.app/"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+            <div class="project-box">
+                <img src="4.jpg" alt="Project 2">
+                <div class="project-layer">
+                    <h4>Project 2</h4>
+                    <p></p>
+                    <a href="#"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+            <div class="project-box">
+                <img src="6.jpg" alt="Project 3">
+                <div class="project-layer">
+                    <h4>Project 3</h4>
+                    <p></p>
+                    <a href="#"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="mailto:harishbharath267@gmail.com" method="POST" enctype="text/plain">
+            <div class="input-box">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+            </div>
+            <textarea name="message" rows="8" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <div class="footer">
+        <p class="footer-text">N. Harish © 2022. All Rights Reserved.</p>
+        <div class="footer-icon">
+            <a href="#"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </div>
+
+    <script>
+        let menu = document.querySelector('#menu-icon');
+        let navbar = document.querySelector('.navbar');
+
+        menu.onclick = () => {
+            navbar.classList.toggle('active');
+        }
+
+        window.onscroll = () => {
+            navbar.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
